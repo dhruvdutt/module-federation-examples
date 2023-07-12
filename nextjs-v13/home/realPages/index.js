@@ -1,10 +1,10 @@
 import React, { Fragment, Suspense } from 'react';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-let useCustomHook;
-if (process.browser) {
-  useCustomHook = require('shop/customHook').default;
-}
+// let useCustomHook;
+// if (process.browser) {
+//   useCustomHook = require('shop/customHook').default;
+// }
 const RemoteTitle = dynamic(
   () => {
     return import('checkout/title');
@@ -13,9 +13,9 @@ const RemoteTitle = dynamic(
 );
 
 const Home = ({ loaded }) => {
-  if (process.browser) {
-    useCustomHook();
-  }
+  // if (process.browser) {
+  //   useCustomHook();
+  // }
   return (
     <div>
       <Head>
@@ -26,7 +26,7 @@ const Home = ({ loaded }) => {
       <div className="hero">
         <RemoteTitle />
         <h1 className="title">
-          Welcome to Next.js on Webpack 5! <code>home</code>
+          HOME Welcome to Next.js on Webpack 5! <code>home</code>
         </h1>
         <p className="description">
           To get started, edit <code>pages/index.js</code> and save to reload.

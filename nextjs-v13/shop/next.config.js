@@ -18,6 +18,9 @@ module.exports = {
             './pages-map': './pages-map.js',
             './customHook': './components/someHook.js',
           },
+          extraOptions: {
+            exposePages: true,
+          }
         }),
       );
     }
