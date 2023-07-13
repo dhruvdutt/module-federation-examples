@@ -81,7 +81,11 @@ module.exports = {
       }
 
       if (FederatedPage) {
-        return React.createElement(FederatedPage, props);
+        console.log('@FederatedPage createElement :', FederatedPage, props);
+        return React.createElement(FederatedPage, {
+          ...props,
+          key: Date.now(),
+        });
       }
 
       return null;

@@ -9,8 +9,14 @@ const RemoteTitle = dynamic(
   () => {
     return import('checkout/title');
   },
-  { ssr: false },
+  { ssr: true },
 );
+
+// const RemoteTitle2 = React.lazy(
+//   () => import('checkout/title'),
+// );
+// console.log('@@@RemoteTitle2 :', RemoteTitle2);
+
 
 const Home = ({ loaded }) => {
   // if (process.browser) {
@@ -25,6 +31,7 @@ const Home = ({ loaded }) => {
 
       <div className="hero">
         <RemoteTitle />
+        {/* <RemoteTitle2 /> */}
         <h1 className="title">
           HOME Welcome to Next.js on Webpack 5! <code>home</code>
         </h1>

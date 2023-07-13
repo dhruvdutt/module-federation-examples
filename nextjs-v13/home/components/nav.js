@@ -25,6 +25,18 @@ const Nav = () => (
         <Link href="/checkout">
           Checkout
         </Link>
+        <Link href="/dashboard/a" replace>
+          Dashboard A (V6)
+        </Link>
+        <Link href="/dashboard/b" replace>
+          Dashboard B (V6)
+        </Link>
+        <Link href="/transactions/a" replace>
+          Transactions A (V4)
+        </Link>
+        <Link href="/transactions/b" replace>
+          Transactions B (V4)
+        </Link>
       </li>
       {links.map(({ key, href, label }) => (
         <li key={key}>

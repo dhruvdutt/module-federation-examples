@@ -4,7 +4,7 @@ import type { ContentProps } from 'remote1/Content';
 
 const Content = React.lazy(
   () => import('remote1/Content') as Promise<{ default: React.FC<ContentProps> }>,
-);
+  );
 
 const App = () => {
   const [state, setState] = React.useState<string>('');

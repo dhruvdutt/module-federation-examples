@@ -12,7 +12,13 @@
 // export default Page;
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 // import NextLink from 'next/link';
 
 export default function App() {
@@ -21,26 +27,21 @@ export default function App() {
       <div>
         <ul>
           <li>
-            <Link to="/dashboard/a">Dashboard React Router 6 - A</Link>
+            <Link to="/transactions/a">Transactions React Router 4 - A</Link>
           </li>
           <li>
-            <Link to="/dashboard/b">Dashboard React Router 6 - B</Link>
+            <Link to="/transactions/b">Transactions React Router 4 - B</Link>
           </li>
         </ul>
 
-        {/* <Switch>
-          <Route path="/home">
-            <h1>React Router 4 - Home</h1>
+        <Switch>
+          <Route path="/transactions/a">
+            <h1>React Router 4 [Transactions] - A</h1>
           </Route>
-          <Route path="/">
-            <h1>React Router 4 - Index</h1>
+          <Route path="/transactions/b">
+            <h1>React Router 4 [Transactions] - B</h1>
           </Route>
-        </Switch> */}
-
-        <Routes>
-          <Route path="/dashboard/a" element={<h1>React Router 6 [Checkout] - A</h1>} />
-          <Route path="/dashboard/b" element={<h1>React Router 6 [Checkout] - B</h1>} />
-        </Routes>
+        </Switch>
       </div>
     </Router>
   );

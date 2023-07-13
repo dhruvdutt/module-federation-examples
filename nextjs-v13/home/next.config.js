@@ -10,7 +10,8 @@ module.exports = {
           remotes: {
             home: 'home@http://localhost:3001/_next/static/chunks/remoteEntry.js',
             checkout: 'checkout@http://localhost:3000/_next/static/chunks/remoteEntry.js',
-            // shop: 'shop@http://localhost:3002/_next/static/chunks/remoteEntry.js',
+            shop: 'shop@http://localhost:3002/_next/static/chunks/remoteEntry.js',
+            transactions: 'transactions@http://localhost:3003/_next/static/chunks/remoteEntry.js',
         },
           exposes: {
             './nav': './components/nav.js',
@@ -18,6 +19,9 @@ module.exports = {
             './pages-map': './pages-map.js',
           },
           shared: {},
+          // extraOptions: {
+          //   exposePages: true,
+          // }
         }),
       );
     }
