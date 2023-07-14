@@ -20,17 +20,29 @@ const remotes = Object.entries(remoteVars).reduce((acc, item) => {
 }, {});
 
 async function matchFederatedPage(path) {
+  const remotesToLoad = ['home'];
+  if (path.startsWith("/transactions")) {
+    remotesToLoad.push('transactions')
+  }
+  if (path.startsWith("/checkout") || path.startsWith("/dashboard")) {
+    remotesToLoad.push('checkout')
+  }
+  if (path.startsWith("/shop")) {
+    remotesToLoad.push('shop')
+  }
+  
+  console.log('@matchFederatedPage remotes :', remotesToLoad);
   const maps = await Promise.all(
-      Object.keys(remotes).map(async remote => {
-        const foundContainer = injectScript(remote);
-        const container = await foundContainer;
-
-        return container
-            .get('./pages-map')
-            .then(factory => ({ remote, config: factory().default }))
-            .catch(() => null);
-      }),
-  );
+    remotesToLoad.map(async remote => {
+      const foundContainer = injectScript(remote);
+      const container = await foundContainer;
+      
+      return container
+      .get('./pages-map')
+      .then(factory => ({ remote, config: factory().default }))
+      .catch(() => null);
+    }),
+    );
 
   const config = {};
 
@@ -53,7 +65,8 @@ async function matchFederatedPage(path) {
 
 module.exports = {
   matchFederatedPage,
-  createFederatedCatchAll() {
+  createFederatedCatchAll(params) {
+    console.log('@createFederatedCatchAll params :', params);
     const FederatedCatchAll = initialProps => {
       const [lazyProps, setProps] = React.useState({});
 
@@ -102,7 +115,7 @@ module.exports = {
         return { needsReload: true, ...props };
       }
 
-      console.log('in browser');
+      console.log('in browser', ctx);
       const matchedPage = await matchFederatedPage(ctx.asPath);
 
       try {
