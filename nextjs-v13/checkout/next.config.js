@@ -15,11 +15,15 @@ module.exports = {
           },
           filename: 'static/chunks/remoteEntry.js',
           exposes: {
+            './dashboard': './pages/index.js',
             './title': './components/exposedTitle.js',
             './checkout': './pages/checkout',
             './pages-map': './pages-map.js',
           },
           shared: {},
+          // extraOptions: {
+          //   exposePages: true,
+          // }
         }),
       );
     }

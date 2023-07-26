@@ -3,15 +3,16 @@
   "private": true,
   "workspaces": [
     "./checkout",
+    "./transactions",
     "./home",
     "./shared",
     "./shop"
   ],
   "version": "0.0.0",
   "scripts": {
-    "start": "concurrently \"npm --prefix checkout run dev\" \"npm --prefix home run dev\" \"npm --prefix shop run dev\"",
-    "build": "concurrently \"npm --prefix checkout run build\" \"npm --prefix home run build\" \"npm --prefix shop run build\"",
-    "serve": "concurrently \"npm --prefix checkout run start\" \"npm --prefix home run start\" \"npm --prefix shop run start\""
+    "start": "concurrently \"npm --prefix checkout run dev\" \"npm --prefix home run dev\" \"npm --prefix shop run dev\" \"npm --prefix transactions run dev\"",
+    "build": "concurrently \"npm --prefix checkout run build\" \"npm --prefix home run build\" \"npm --prefix shop run build\" \"npm --prefix transactions run build\"",
+    "serve": "concurrently \"npm --prefix checkout run start\" \"npm --prefix home run start\" \"npm --prefix shop run start\" \"npm --prefix transactions run start\""
   },
   "dependencies": {
     "concurrently": "7.6.0"
