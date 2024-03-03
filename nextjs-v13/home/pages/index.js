@@ -3,14 +3,14 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import { lazy } from 'react';
 let useCustomHook;
-let RemoteTitle = () => null;
-if (process.browser) {
-  //useCustomHook = require('shop/customHook').default;
-  RemoteTitle = lazy(() => {
-    return import('checkout/title');
-  });
-}
-console.log('test');
+// let RemoteTitle = () => null;
+// if (process.browser) {
+//   //useCustomHook = require('shop/customHook').default;
+//   RemoteTitle = lazy(() => {
+//     return import('checkout/title');
+//   });
+// }
+// console.log('test');
 
 const Home = ({ loaded }) => {
   if (process.browser) {
@@ -24,7 +24,7 @@ const Home = ({ loaded }) => {
       </Head>
 
       <div className="hero">
-        <RemoteTitle />
+        {/* <RemoteTitle /> */}
         <h1 className="title">
           Welcome to Next.js on Webpack 5! <code>home</code>
         </h1>

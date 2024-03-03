@@ -15,10 +15,10 @@ module.exports = {
           filename: 'static/chunks/remoteEntry.js',
           exposes: {
             './title': './components/exposedTitle.js',
+            './routerEntry': './pages/routerEntry',
             './checkout': './pages/checkout',
             './pages-map': './pages-map.js',
           },
-          shared: {},
           extraOptions: {},
         }),
       );

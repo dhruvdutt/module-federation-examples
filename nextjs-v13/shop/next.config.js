@@ -16,7 +16,9 @@ module.exports = {
             './pdp': './pages/p/[...slug].js',
             './pages-map': './pages-map.js',
             './customHook': './components/someHook.js',
+            './routerEntry': './pages/routerEntry',
           },
+         
         }),
       );
     }

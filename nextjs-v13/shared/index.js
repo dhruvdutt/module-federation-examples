@@ -1,7 +1,13 @@
 const React = require('react');
 const createMatcher = require('feather-route-matcher');
 const { injectScript } = require('@module-federation/utilities');
-const remoteVars = process.env.REMOTES || {};
+const remoteVars = process.env.REMOTES || {
+  home: `home@http://localhost:3001/_next/static/chunks/remoteEntry.js`,
+  shop: 'shop@http://localhost:3002/_next/static/chunks/remoteEntry.js',
+};
+
+console.log('remoteVars', remoteVars);
+
 const remotes = Object.entries(remoteVars).reduce((acc, item) => {
   const [key, value] = item;
   if (typeof value !== 'string') {
@@ -97,7 +103,7 @@ module.exports = {
         return { needsReload: true, ...props };
       }
 
-      console.log('in browser');
+      console.log('in browser', ctx);
       const matchedPage = await matchFederatedPage(ctx.asPath);
 
       try {

@@ -15,6 +15,8 @@ const Nav = () => (
       <li>
         <Link href="/">Home</Link>
         <Link href="/shop">Shop</Link>
+        {/* Inform React Router */}
+        <Link href="/payout">Payout</Link>
         <Link href="/p/something">Federated Catch All</Link>
         <Link href="/checkout">Checkout</Link>
       </li>
