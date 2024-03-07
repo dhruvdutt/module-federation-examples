@@ -19,6 +19,7 @@ const Nav = () => (
         <Link href="/payout">Payout</Link>
         <Link href="/p/something">Federated Catch All</Link>
         <Link href="/checkout">Checkout</Link>
+        <Link href="/remotemodule/random">Remote Module</Link>
       </li>
       {links.map(({ key, href, label }) => (
         <li key={key}>
