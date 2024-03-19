@@ -2,12 +2,24 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import dynamic from 'next/dynamic';
+import React from 'react';
 
-const ReactRemoteComponent = dynamic(() => import('remote/Nav'), {
-  ssr: false,
-});
+// const ReactRemoteComponent = dynamic(() => import('remote/Nav'), {
+//   ssr: false,
+// });
+
+const ReactRemoteComponent =
+  typeof window !== "undefined"
+    ? React.lazy(() => import("remote/Nav"))
+    : () => null;
 
 export default function Home() {
+  const [isClient, setIsClient] = React.useState(false)
+
+  React.useEffect(() => {
+    setIsClient(true)
+  },[])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -25,7 +37,7 @@ export default function Home() {
           Get started by editing <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <ReactRemoteComponent />
+        {isClient?<ReactRemoteComponent />:null}
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card} data-e2e="TEXTED_LINK_CARD">
             <h2>Documentation &rarr;</h2>

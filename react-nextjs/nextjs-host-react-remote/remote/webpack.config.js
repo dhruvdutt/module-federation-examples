@@ -53,8 +53,25 @@ module.exports = {
         // './react': 'react',
         // './react-dom': 'react-dom',
         './Nav': './src/components/Nav',
+        './TransactionsContainer': './src/components/TransactionsContainer',
       },
-      shared: {},
+      remotes: {
+        host: 'host@http://localhost:8080/_next/static/chunks/host.remoteEntry.js',
+      },
+      shared: {
+        'react-router-dom': {
+          singleton: true,
+          requiredVersion: deps['react-router-dom'],
+        },
+        'react': {
+          singleton: true,
+          requiredVersion: deps['react'],
+        },
+        'react-dom': {
+          singleton: true,
+          requiredVersion: deps['react-dom'],
+        },
+      },
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',

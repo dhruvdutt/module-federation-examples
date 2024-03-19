@@ -18,6 +18,7 @@ module.exports = {
             './routerEntry': './pages/routerEntry',
             './checkout': './pages/checkout',
             './pages-map': './pages-map.js',
+            './WebRemoteContainer': './components/WebRemoteContainer.js',
           },
           extraOptions: {},
         }),
